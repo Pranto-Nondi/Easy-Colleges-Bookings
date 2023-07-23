@@ -3,10 +3,13 @@
 
 import React from 'react';
 import useEasyColleges from '../../../hooks/useEasyColleges';
+import { Link } from 'react-router-dom';
 
 const CollegesCards = () => {
   const [colleges] = useEasyColleges();
 
+
+  
   return (
     <div className="container mx-auto my-10 px-2">
       <h2 className="text-3xl font-bold mb-6 text-center">Featured Colleges</h2>
@@ -38,9 +41,8 @@ const CollegesCards = () => {
                 <li>{college.sports[1].name}</li>
               </ul>
               <div className="flex justify-center mt-4">
-                <button className="bg-emerald-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-emerald-600">
-                  Details
-                </button>
+               
+                <Link to={`/collegeDetails/${college._id}`} className="bg-emerald-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-emerald-600">Details</Link>
               </div>
             </div>
           </div>
