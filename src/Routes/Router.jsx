@@ -8,6 +8,7 @@ import Admission from "../Pages/Admission/Admission";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'colleges',
-                element: <Colleges />,
+                element: <PrivateRoute><Colleges /></PrivateRoute>,
             },
             {
                 path: 'admission',

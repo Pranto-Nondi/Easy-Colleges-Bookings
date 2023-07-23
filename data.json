@@ -38,11 +38,7 @@
       }
     ],
     "details": "Harvard University is a renowned Ivy League institution...",
-    "graduateImages": [
-      "harvard_grad1.jpg",
-      "harvard_grad2.jpg",
-      "harvard_grad3.jpg"
-    ],
+    "graduateImages": "https://i.ibb.co/CM8QyWF/masters-850.jpg",
     "researchPapers": [
       {
         "id": 301,
@@ -112,11 +108,7 @@
       }
     ],
     "details": "Stanford University is a prestigious institution located in the heart of Silicon Valley...",
-    "graduateImages": [
-      "stanford_grad1.jpg",
-      "stanford_grad2.jpg",
-      "stanford_grad3.jpg"
-    ],
+    "graduateImages": "https://i.ibb.co/QnFwpwC/photo-announcement-employment-report-2016-17-1.jpg",
     "researchPapers": [
       {
         "id": 303,
@@ -185,11 +177,7 @@
       }
     ],
     "details": "Massachusetts Institute of Technology (MIT) is a world-renowned university...",
-    "graduateImages": [
-      "mit_grad1.jpg",
-      "mit_grad2.jpg",
-      "mit_grad3.jpg"
-    ],
+    "graduateImages":"https://i.ibb.co/RhK038B/MIT-Comm22-GE-01-press.jpg",
     "researchPapers": [
       {
         "id": 305,
@@ -258,11 +246,7 @@
       }
     ],
     "details": "Yale University is one of the oldest and most prestigious universities...",
-    "graduateImages": [
-      "yale_grad1.jpg",
-      "yale_grad2.jpg",
-      "yale_grad3.jpg"
-    ],
+    "graduateImages": "https://i.ibb.co/5T5ZF0Y/commencement-dsc4598-cropped.jpg",
     "researchPapers": [
       {
         "id": 307,
@@ -331,11 +315,7 @@
       }
     ],
     "details": "California Institute of Technology (Caltech) is a world-renowned institution...",
-    "graduateImages": [
-      "caltech_grad1.jpg",
-      "caltech_grad2.jpg",
-      "caltech_grad3.jpg"
-    ],
+    "graduateImages": "https://i.ibb.co/86Mpn7R/11568468677-1500-X1000.jpg",
     "researchPapers": [
       {
         "id": 309,
@@ -404,11 +384,7 @@
       }
     ],
     "details": "Princeton University is a prestigious Ivy League institution...",
-    "graduateImages": [
-      "princeton_grad1.jpg",
-      "princeton_grad2.jpg",
-      "princeton_grad3.jpg"
-    ],
+    "graduateImages": "https://i.ibb.co/tZZ2dyg/20230530-Commencement-CS-2349-3000x1688.jpg",
     "researchPapers": [
       {
         "id": 311,
