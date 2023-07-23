@@ -21,7 +21,7 @@ const CollegesCards = () => {
           >
             <figure>
               <img
-                src="https://images.unsplash.com/20/cambridge.JPG?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aGFydmFyZCUyMHVuaXZlcnNpdHl8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
+                src={college?.image}
                 alt="college img"
                 className="w-full h-48 object-cover rounded-md"
               />
