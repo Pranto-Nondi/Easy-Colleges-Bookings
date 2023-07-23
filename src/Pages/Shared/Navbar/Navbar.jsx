@@ -1,58 +1,26 @@
-// import { useContext, useState } from "react";
+
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../../provider/AuthProvider";
-// import swal from "sweetalert";
-// import useInstructor from "../../../hooks/useInstructor";
-// import useAdmin from "../../../hooks/useAdmin";
-
-
-
-
+import { AuthContext } from "../../../provider/AuthProvider";
+import swal from "sweetalert";
 const NavBar = () => {
-    // const { user, logOut } = useContext(AuthContext);
-    // const [isAdmin] = useAdmin();
-    // const [isInstructor] = useInstructor();
+    
+    const { user, loggedOut, loading } = useContext(AuthContext) || {}
     const navigate = useNavigate()
 
+    const handelLogOut = () => {
+        loggedOut()
+            .then(() => {
+                swal('Good job!', 'LogOut Successful', 'success');
+                navigate('/')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
 
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(() => {
-    //             swal('Good job!', 'LogOut Successful', 'success');
-    //             navigate('/')
-    //         })
-    //         .catch(error => console.log(error));
-    // }
 
-    // const renderDashboardLink = () => {
-    //     if (isAdmin) {
-    //         return (
-    //             <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
-    //         );
-    //     } else if (isInstructor) {
-    //         return (
-    //             <li><Link to="/dashboard/instructorHome">Dashboard</Link></li>
-    //         );
-    //     } else if (user) {
-    //         return (
-    //             <li><Link to="/dashboard/studentHome">Dashboard</Link></li>
-    //         );
-    //     }
-    //     return null;
-    // };
-
-    // const renderAuthOptions = () => {
-    //     if (user) {
-    //         return (
-    //             <li><button onClick={handleLogOut}>Log Out</button></li>
-    //         );
-    //     } else {
-    //         return (
-    //             <li><Link to="/login">Login</Link></li>
-    //         );
-    //     }
-    // }
 
 
     return (
@@ -68,8 +36,7 @@ const NavBar = () => {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/colleges">Colleges</Link></li>
                             <li><Link to="/admission">Admission</Link></li>
-                            {/* {renderDashboardLink()}
-                            {renderAuthOptions()} */}
+
                         </ul>
                     </div>
                     <Link to='/'> <p className=" normal-case text-xl">EasyCollegeBookings</p></Link>
@@ -79,22 +46,46 @@ const NavBar = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/colleges">Colleges</Link></li>
                         <li><Link to="/admission">Admission</Link></li>
-                        {/* {renderDashboardLink()}
-                        {renderAuthOptions()} */}
+
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-12 h-12 rounded-full">
-                            {/* <img
-                                src={user ? user?.photoURL : "https://i.ibb.co/3fMBDSH/u.png"}
-                                className="w-full h-full rounded-full"
-                                alt="User Avatar"
-                            /> */}
-                        </div>
-                    </label>
-                    {/* <DarkModeToggle /> */}
 
+                <div className="navbar-end">
+                    <div className="flex items-center space-x-4">
+                        {!user && !loading && <>
+                            <Link to='/login'><p className="btn text-sm md:text-lg lg:text-lg">Login</p></Link>
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className=" w-12 h-12 rounded-full">
+                                    <img src="https://i.ibb.co/3YZNVgN/pro.png" className="w-full h-full rounded-full" alt="User Avatar" />
+
+                                </div>
+                            </label>
+                        </>
+                        }
+                        {
+                            !user || loading && <>
+
+                                <button className="btn loading">loading</button>
+
+                            </>
+                        }
+                        {
+                            user && !loading && <>
+                                <Link to='/login'><p onClick={handelLogOut} className="btn text-sm md:text-lg lg:text-lg">LogOut</p></Link>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className=" w-12 h-12 rounded-full">
+                                        {
+                                            user.photoURL == null && <img src="https://i.ibb.co/3YZNVgN/pro.png" className="w-full h-full rounded-full" alt="User Avatar" />
+                                        }
+                                        {user.photoURL && <img src={user.photoURL} className="w-full h-full rounded-full" alt="User Avatar" title={user.displayName} />}
+
+
+                                    </div>
+                                </label>
+                            </>
+                        }
+
+                    </div>
                 </div>
             </div>
         </div>

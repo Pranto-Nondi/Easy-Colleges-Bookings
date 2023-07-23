@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import './index.css'
 import router from './Routes/Router';
+import AuthProvider from './provider/AuthProvider';
 import {
   QueryClient,
   QueryClientProvider,
@@ -12,10 +13,12 @@ import {
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <div className='max-w-screen-xl mx-auto bg-gray-100 '>
-        <RouterProvider router={router} />
-      </div>
-    </QueryClientProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <div className='max-w-screen-xl mx-auto bg-gray-100 '>
+          <RouterProvider router={router} />
+        </div>
+      </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
