@@ -1,386 +1,440 @@
 [
-    {
-      "id": 1,
-      "name": "Harvard University",
-      "image": "harvard.jpg",
-      "rating": 4.9,
-      "admissionDate": "2023-09-01",
-      "researchCount": 300,
-      "events": [
-        {
-          "id": 101,
-          "name": "Annual Commencement",
-          "date": "2023-05-20",
-          "description": "Celebrate the graduation of our students at the annual commencement ceremony."
-        },
-        {
-          "id": 102,
-          "name": "Harvard Business Summit",
-          "date": "2023-10-15",
-          "description": "Join business leaders and alumni at our prestigious business summit."
-        }
-      ],
-      "sports": [
-        {
-          "id": 201,
-          "name": "Basketball",
-          "description": "Cheer for our basketball team as they compete in the collegiate championships."
-        },
-        {
-          "id": 202,
-          "name": "Rowing",
-          "description": "Witness the excitement of our rowing team races on the Charles River."
-        }
-      ],
-      "details": "Harvard University is a renowned Ivy League institution...",
-      "graduateImages": ["harvard_grad1.jpg", "harvard_grad2.jpg", "harvard_grad3.jpg"],
-      "researchPapers": [
-        {
-          "id": 301,
-          "title": "The Role of Artificial Intelligence in Medicine",
-          "authors": "John Smith, Emily Johnson",
-          "link": "https://example.com/research-paper1.pdf"
-        },
-        {
-          "id": 302,
-          "title": "Climate Change and Its Impact on Global Economy",
-          "authors": "Sarah Brown, Michael Lee",
-          "link": "https://example.com/research-paper2.pdf"
-        }
-      ],
-      "reviews": [
-        {
-          "id": 401,
-          "user": "User123",
-          "rating": 4.8,
-          "comment": "An exceptional university with top-notch academics."
-        },
-        {
-          "id": 402,
-          "user": "Student456",
-          "rating": 4.5,
-          "comment": "Amazing campus and a vibrant student community."
-        }
-      ]
+  {
+    "id": 1,
+    "name": "Harvard University",
+    "image": "harvard.jpg",
+    "rating": 4.9,
+    "admissionDate": "2023-09-01",
+    "admissionProcess": {
+      "applicationDeadline": "2023-04-30",
+      "requirements": "SAT/ACT scores, letters of recommendation, essays",
+      "procedures": "Submit the Common Application online, pay the application fee, and complete an interview if invited."
     },
-    {
-      "id": 2,
-      "name": "Stanford University",
-      "image": "stanford.jpg",
-      "rating": 4.7,
-      "admissionDate": "2023-09-15",
-      "researchCount": 250,
-      "events": [
-        {
-          "id": 103,
-          "name": "Stanford Arts Festival",
-          "date": "2023-06-30",
-          "description": "Experience a diverse showcase of art at our annual arts festival."
-        },
-        {
-          "id": 104,
-          "name": "Tech Innovators Conference",
-          "date": "2023-11-05",
-          "description": "Explore the latest tech innovations at our conference."
-        }
-      ],
-      "sports": [
-        {
-          "id": 203,
-          "name": "Soccer",
-          "description": "Support our soccer team as they compete in the Pac-12 championships."
-        },
-        {
-          "id": 204,
-          "name": "Swimming",
-          "description": "Cheer for our swimmers at the NCAA swimming competitions."
-        }
-      ],
-      "details": "Stanford University is a prestigious institution located in the heart of Silicon Valley...",
-      "graduateImages": ["stanford_grad1.jpg", "stanford_grad2.jpg", "stanford_grad3.jpg"],
-      "researchPapers": [
-        {
-          "id": 303,
-          "title": "Advancements in Autonomous Vehicles",
-          "authors": "Alice Johnson, Robert Lee",
-          "link": "https://example.com/research-paper3.pdf"
-        },
-        {
-          "id": 304,
-          "title": "Genetic Engineering and Its Ethical Implications",
-          "authors": "Sophia Brown, David Miller",
-          "link": "https://example.com/research-paper4.pdf"
-        }
-      ],
-      "reviews": [
-        {
-          "id": 403,
-          "user": "Student789",
-          "rating": 4.6,
-          "comment": "Incredible faculty and research opportunities."
-        },
-        {
-          "id": 404,
-          "user": "UserXYZ",
-          "rating": 4.3,
-          "comment": "A well-rounded university with strong community support."
-        }
-      ]
+    "researchCount": 300,
+    "events": [
+      {
+        "id": 101,
+        "name": "Annual Commencement",
+        "date": "2023-05-20",
+        "description": "Celebrate the graduation of our students at the annual commencement ceremony."
+      },
+      {
+        "id": 102,
+        "name": "Harvard Business Summit",
+        "date": "2023-10-15",
+        "description": "Join business leaders and alumni at our prestigious business summit."
+      }
+    ],
+    "sports": [
+      {
+        "id": 201,
+        "name": "Basketball",
+        "description": "Cheer for our basketball team as they compete in the collegiate championships."
+      },
+      {
+        "id": 202,
+        "name": "Rowing",
+        "description": "Witness the excitement of our rowing team races on the Charles River."
+      }
+    ],
+    "details": "Harvard University is a renowned Ivy League institution...",
+    "graduateImages": [
+      "harvard_grad1.jpg",
+      "harvard_grad2.jpg",
+      "harvard_grad3.jpg"
+    ],
+    "researchPapers": [
+      {
+        "id": 301,
+        "title": "The Role of Artificial Intelligence in Medicine",
+        "authors": "John Smith, Emily Johnson",
+        "link": "https://example.com/research-paper1.pdf"
+      },
+      {
+        "id": 302,
+        "title": "Climate Change and Its Impact on Global Economy",
+        "authors": "Sarah Brown, Michael Lee",
+        "link": "https://example.com/research-paper2.pdf"
+      }
+    ],
+    "reviews": [
+      {
+        "id": 401,
+        "user": "User123",
+        "rating": 4.8,
+        "comment": "An exceptional university with top-notch academics."
+      },
+      {
+        "id": 402,
+        "user": "Student456",
+        "rating": 4.5,
+        "comment": "Amazing campus and a vibrant student community."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Stanford University",
+    "image": "stanford.jpg",
+    "rating": 4.7,
+    "admissionDate": "2023-09-15",
+    "admissionProcess": {
+      "applicationDeadline": "2023-04-30",
+      "requirements": "SAT/ACT scores, letters of recommendation, essays",
+      "procedures": "Submit the Common Application online, pay the application fee, and complete an interview if invited."
     },
-    {
-      "id": 3,
-      "name": "Massachusetts Institute of Technology (MIT)",
-      "image": "mit.jpg",
-      "rating": 4.8,
-      "admissionDate": "2023-08-25",
-      "researchCount": 280,
-      "events": [
-        {
-          "id": 105,
-          "name": "MIT Hacks",
-          "date": "2023-09-10",
-          "description": "Participate in the legendary MIT hacks and showcase your creativity."
-        },
-        {
-          "id": 106,
-          "name": "MIT Tech Symposium",
-          "date": "2023-11-12",
-          "description": "Join tech enthusiasts and industry experts at our symposium."
-        }
-      ],
-      "sports": [
-        {
-          "id": 205,
-          "name": "Ice Hockey",
-          "description": "Support our ice hockey team as they compete in regional championships."
-        },
-        {
-          "id": 206,
-          "name": "Badminton",
-          "description": "Play badminton with fellow students at our state-of-the-art facility."
-        }
-      ],
-      "details": "Massachusetts Institute of Technology (MIT) is a world-renowned university...",
-      "graduateImages": ["mit_grad1.jpg", "mit_grad2.jpg", "mit_grad3.jpg"],
-      "researchPapers": [
-        {
-          "id": 305,
-          "title": "Artificial Intelligence and Robotics Integration",
-          "authors": "John Smith, Emily Johnson",
-          "link": "https://example.com/research-paper5.pdf"
-        },
-        {
-          "id": 306,
-          "title": "Advancements in Renewable Energy Technology",
-          "authors": "Sarah Brown, Michael Lee",
-          "link": "https://example.com/research-paper6.pdf"
-        }
-      ],
-      "reviews": [
-        {
-          "id": 405,
-          "user": "UserABC",
-          "rating": 4.9,
-          "comment": "MIT sets the standard for cutting-edge research and innovation."
-        },
-        {
-          "id": 406,
-          "user": "StudentDEF",
-          "rating": 4.7,
-          "comment": "A challenging yet rewarding academic experience."
-        }
-      ]
+    "researchCount": 250,
+    "events": [
+      {
+        "id": 103,
+        "name": "Stanford Arts Festival",
+        "date": "2023-06-30",
+        "description": "Experience a diverse showcase of art at our annual arts festival."
+      },
+      {
+        "id": 104,
+        "name": "Tech Innovators Conference",
+        "date": "2023-11-05",
+        "description": "Explore the latest tech innovations at our conference."
+      }
+    ],
+    "sports": [
+      {
+        "id": 203,
+        "name": "Soccer",
+        "description": "Support our soccer team as they compete in the Pac-12 championships."
+      },
+      {
+        "id": 204,
+        "name": "Swimming",
+        "description": "Cheer for our swimmers at the NCAA swimming competitions."
+      }
+    ],
+    "details": "Stanford University is a prestigious institution located in the heart of Silicon Valley...",
+    "graduateImages": [
+      "stanford_grad1.jpg",
+      "stanford_grad2.jpg",
+      "stanford_grad3.jpg"
+    ],
+    "researchPapers": [
+      {
+        "id": 303,
+        "title": "Advancements in Autonomous Vehicles",
+        "authors": "Alice Johnson, Robert Lee",
+        "link": "https://example.com/research-paper3.pdf"
+      },
+      {
+        "id": 304,
+        "title": "Genetic Engineering and Its Ethical Implications",
+        "authors": "Sophia Brown, David Miller",
+        "link": "https://example.com/research-paper4.pdf"
+      }
+    ],
+    "reviews": [
+      {
+        "id": 403,
+        "user": "Student789",
+        "rating": 4.6,
+        "comment": "Incredible faculty and research opportunities."
+      },
+      {
+        "id": 404,
+        "user": "UserXYZ",
+        "rating": 4.3,
+        "comment": "A well-rounded university with strong community support."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Massachusetts Institute of Technology (MIT)",
+    "image": "mit.jpg",
+    "rating": 4.8,
+    "admissionDate": "2023-08-25",
+    "admissionProcess": {
+      "applicationDeadline": "2023-04-30",
+      "requirements": "SAT/ACT scores, letters of recommendation, essays",
+      "procedures": "Submit the Common Application online, pay the application fee, and complete an interview if invited."
     },
-    {
-      "id": 4,
-      "name": "Yale University",
-      "image": "yale.jpg",
-      "rating": 4.6,
-      "admissionDate": "2023-08-20",
-      "researchCount": 210,
-      "events": [
-        {
-          "id": 107,
-          "name": "Yale Arts Gala",
-          "date": "2023-05-25",
-          "description": "Celebrate the arts at our annual Yale Arts Gala."
-        },
-        {
-          "id": 108,
-          "name": "Global Health Summit",
-          "date": "2023-10-20",
-          "description": "Join global health experts and activists at our summit."
-        }
-      ],
-      "sports": [
-        {
-          "id": 207,
-          "name": "Baseball",
-          "description": "Cheer for our baseball team as they compete in the Ivy League tournament."
-        },
-        {
-          "id": 208,
-          "name": "Fencing",
-          "description": "Witness the finesse of our fencers at collegiate championships."
-        }
-      ],
-      "details": "Yale University is one of the oldest and most prestigious universities...",
-      "graduateImages": ["yale_grad1.jpg", "yale_grad2.jpg", "yale_grad3.jpg"],
-      "researchPapers": [
-        {
-          "id": 307,
-          "title": "The Role of Social Media in Modern Politics",
-          "authors": "Alice Johnson, Robert Lee",
-          "link": "https://example.com/research-paper7.pdf"
-        },
-        {
-          "id": 308,
-          "title": "Urban Planning and Sustainable Development",
-          "authors": "Sophia Brown, David Miller",
-          "link": "https://example.com/research-paper8.pdf"
-        }
-      ],
-      "reviews": [
-        {
-          "id": 407,
-          "user": "UserXYZ",
-          "rating": 4.5,
-          "comment": "Yale's faculty members are knowledgeable and supportive."
-        },
-        {
-          "id": 408,
-          "user": "StudentGHI",
-          "rating": 4.4,
-          "comment": "A culturally rich and intellectually stimulating environment."
-        }
-      ]
+    "researchCount": 280,
+    "events": [
+      {
+        "id": 105,
+        "name": "MIT Hacks",
+        "date": "2023-09-10",
+        "description": "Participate in the legendary MIT hacks and showcase your creativity."
+      },
+      {
+        "id": 106,
+        "name": "MIT Tech Symposium",
+        "date": "2023-11-12",
+        "description": "Join tech enthusiasts and industry experts at our symposium."
+      }
+    ],
+    "sports": [
+      {
+        "id": 205,
+        "name": "Ice Hockey",
+        "description": "Support our ice hockey team as they compete in regional championships."
+      },
+      {
+        "id": 206,
+        "name": "Badminton",
+        "description": "Play badminton with fellow students at our state-of-the-art facility."
+      }
+    ],
+    "details": "Massachusetts Institute of Technology (MIT) is a world-renowned university...",
+    "graduateImages": [
+      "mit_grad1.jpg",
+      "mit_grad2.jpg",
+      "mit_grad3.jpg"
+    ],
+    "researchPapers": [
+      {
+        "id": 305,
+        "title": "Artificial Intelligence and Robotics Integration",
+        "authors": "John Smith, Emily Johnson",
+        "link": "https://example.com/research-paper5.pdf"
+      },
+      {
+        "id": 306,
+        "title": "Advancements in Renewable Energy Technology",
+        "authors": "Sarah Brown, Michael Lee",
+        "link": "https://example.com/research-paper6.pdf"
+      }
+    ],
+    "reviews": [
+      {
+        "id": 405,
+        "user": "UserABC",
+        "rating": 4.9,
+        "comment": "MIT sets the standard for cutting-edge research and innovation."
+      },
+      {
+        "id": 406,
+        "user": "StudentDEF",
+        "rating": 4.7,
+        "comment": "A challenging yet rewarding academic experience."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Yale University",
+    "image": "yale.jpg",
+    "rating": 4.6,
+    "admissionDate": "2023-08-20",
+    "admissionProcess": {
+      "applicationDeadline": "2023-04-30",
+      "requirements": "SAT/ACT scores, letters of recommendation, essays",
+      "procedures": "Submit the Common Application online, pay the application fee, and complete an interview if invited."
     },
-    {
-      "id": 5,
-      "name": "California Institute of Technology (Caltech)",
-      "image": "caltech.jpg",
-      "rating": 4.9,
-      "admissionDate": "2023-09-05",
-      "researchCount": 260,
-      "events": [
-        {
-          "id": 109,
-          "name": "Caltech Science Fair",
-          "date": "2023-06-15",
-          "description": "Explore fascinating scientific projects at our science fair."
-        },
-        {
-          "id": 110,
-          "name": "Tech Symposium",
-          "date": "2023-11-08",
-          "description": "Discover the latest breakthroughs at our tech symposium."
-        }
-      ],
-      "sports": [
-        {
-          "id": 209,
-          "name": "Swimming",
-          "description": "Cheer for our swimmers as they compete at the NCAA championships."
-        },
-        {
-          "id": 210,
-          "name": "Tennis",
-          "description": "Join our tennis club and play on our top-class courts."
-        }
-      ],
-      "details": "California Institute of Technology (Caltech) is a world-renowned institution...",
-      "graduateImages": ["caltech_grad1.jpg", "caltech_grad2.jpg", "caltech_grad3.jpg"],
-      "researchPapers": [
-        {
-          "id": 309,
-          "title": "Quantum Computing: The Future of Computation",
-          "authors": "John Smith, Emily Johnson",
-          "link": "https://example.com/research-paper9.pdf"
-        },
-        {
-          "id": 310,
-          "title": "Advancements in Space Exploration Technology",
-          "authors": "Sarah Brown, Michael Lee",
-          "link": "https://example.com/research-paper10.pdf"
-        }
-      ],
-      "reviews": [
-        {
-          "id": 409,
-          "user": "StudentJKL",
-          "rating": 4.9,
-          "comment": "Caltech's rigorous academic program prepares students for success."
-        },
-        {
-          "id": 410,
-          "user": "UserMNO",
-          "rating": 4.8,
-          "comment": "A small but tight-knit community of brilliant minds."
-        }
-      ]
+    "researchCount": 210,
+    "events": [
+      {
+        "id": 107,
+        "name": "Yale Arts Gala",
+        "date": "2023-05-25",
+        "description": "Celebrate the arts at our annual Yale Arts Gala."
+      },
+      {
+        "id": 108,
+        "name": "Global Health Summit",
+        "date": "2023-10-20",
+        "description": "Join global health experts and activists at our summit."
+      }
+    ],
+    "sports": [
+      {
+        "id": 207,
+        "name": "Baseball",
+        "description": "Cheer for our baseball team as they compete in the Ivy League tournament."
+      },
+      {
+        "id": 208,
+        "name": "Fencing",
+        "description": "Witness the finesse of our fencers at collegiate championships."
+      }
+    ],
+    "details": "Yale University is one of the oldest and most prestigious universities...",
+    "graduateImages": [
+      "yale_grad1.jpg",
+      "yale_grad2.jpg",
+      "yale_grad3.jpg"
+    ],
+    "researchPapers": [
+      {
+        "id": 307,
+        "title": "The Role of Social Media in Modern Politics",
+        "authors": "Alice Johnson, Robert Lee",
+        "link": "https://example.com/research-paper7.pdf"
+      },
+      {
+        "id": 308,
+        "title": "Urban Planning and Sustainable Development",
+        "authors": "Sophia Brown, David Miller",
+        "link": "https://example.com/research-paper8.pdf"
+      }
+    ],
+    "reviews": [
+      {
+        "id": 407,
+        "user": "UserXYZ",
+        "rating": 4.5,
+        "comment": "Yale's faculty members are knowledgeable and supportive."
+      },
+      {
+        "id": 408,
+        "user": "StudentGHI",
+        "rating": 4.4,
+        "comment": "A culturally rich and intellectually stimulating environment."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "California Institute of Technology (Caltech)",
+    "image": "caltech.jpg",
+    "rating": 4.9,
+    "admissionDate": "2023-09-05",
+    "admissionProcess": {
+      "applicationDeadline": "2023-04-30",
+      "requirements": "SAT/ACT scores, letters of recommendation, essays",
+      "procedures": "Submit the Common Application online, pay the application fee, and complete an interview if invited."
     },
-    {
-      "id": 6,
-      "name": "Princeton University",
-      "image": "princeton.jpg",
-      "rating": 4.7,
-      "admissionDate": "2023-08-30",
-      "researchCount": 230,
-      "events": [
-        {
-          "id": 111,
-          "name": "Princeton Arts Festival",
-          "date": "2023-06-20",
-          "description": "Celebrate the arts at our annual Princeton Arts Festival."
-        },
-        {
-          "id": 112,
-          "name": "Entrepreneurship Summit",
-          "date": "2023-10-25",
-          "description": "Join entrepreneurs and business leaders at our summit."
-        }
-      ],
-      "sports": [
-        {
-          "id": 211,
-          "name": "Lacrosse",
-          "description": "Support our lacrosse team as they compete in the NCAA tournament."
-        },
-        {
-          "id": 212,
-          "name": "Golf",
-          "description": "Play golf at our scenic golf course and enjoy friendly competitions."
-        }
-      ],
-      "details": "Princeton University is a prestigious Ivy League institution...",
-      "graduateImages": ["princeton_grad1.jpg", "princeton_grad2.jpg", "princeton_grad3.jpg"],
-      "researchPapers": [
-        {
-          "id": 311,
-          "title": "Economic Inequality and its Implications",
-          "authors": "Alice Johnson, Robert Lee",
-          "link": "https://example.com/research-paper11.pdf"
-        },
-        {
-          "id": 312,
-          "title": "Advancements in Biomedical Engineering",
-          "authors": "Sophia Brown, David Miller",
-          "link": "https://example.com/research-paper12.pdf"
-        }
-      ],
-      "reviews": [
-        {
-          "id": 411,
-          "user": "StudentPQR",
-          "rating": 4.6,
-          "comment": "Princeton offers an enriching academic and social experience."
-        },
-        {
-          "id": 412,
-          "user": "UserSTU",
-          "rating": 4.5,
-          "comment": "A beautiful campus with excellent resources for students."
-        }
-      ]
-    }
-  ]
+    "researchCount": 260,
+    "events": [
+      {
+        "id": 109,
+        "name": "Caltech Science Fair",
+        "date": "2023-06-15",
+        "description": "Explore fascinating scientific projects at our science fair."
+      },
+      {
+        "id": 110,
+        "name": "Tech Symposium",
+        "date": "2023-11-08",
+        "description": "Discover the latest breakthroughs at our tech symposium."
+      }
+    ],
+    "sports": [
+      {
+        "id": 209,
+        "name": "Swimming",
+        "description": "Cheer for our swimmers as they compete at the NCAA championships."
+      },
+      {
+        "id": 210,
+        "name": "Tennis",
+        "description": "Join our tennis club and play on our top-class courts."
+      }
+    ],
+    "details": "California Institute of Technology (Caltech) is a world-renowned institution...",
+    "graduateImages": [
+      "caltech_grad1.jpg",
+      "caltech_grad2.jpg",
+      "caltech_grad3.jpg"
+    ],
+    "researchPapers": [
+      {
+        "id": 309,
+        "title": "Quantum Computing: The Future of Computation",
+        "authors": "John Smith, Emily Johnson",
+        "link": "https://example.com/research-paper9.pdf"
+      },
+      {
+        "id": 310,
+        "title": "Advancements in Space Exploration Technology",
+        "authors": "Sarah Brown, Michael Lee",
+        "link": "https://example.com/research-paper10.pdf"
+      }
+    ],
+    "reviews": [
+      {
+        "id": 409,
+        "user": "StudentJKL",
+        "rating": 4.9,
+        "comment": "Caltech's rigorous academic program prepares students for success."
+      },
+      {
+        "id": 410,
+        "user": "UserMNO",
+        "rating": 4.8,
+        "comment": "A small but tight-knit community of brilliant minds."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Princeton University",
+    "image": "princeton.jpg",
+    "rating": 4.7,
+    "admissionDate": "2023-08-30",
+    "admissionProcess": {
+      "applicationDeadline": "2023-04-30",
+      "requirements": "SAT/ACT scores, letters of recommendation, essays",
+      "procedures": "Submit the Common Application online, pay the application fee, and complete an interview if invited."
+    },
+    "researchCount": 230,
+    "events": [
+      {
+        "id": 111,
+        "name": "Princeton Arts Festival",
+        "date": "2023-06-20",
+        "description": "Celebrate the arts at our annual Princeton Arts Festival."
+      },
+      {
+        "id": 112,
+        "name": "Entrepreneurship Summit",
+        "date": "2023-10-25",
+        "description": "Join entrepreneurs and business leaders at our summit."
+      }
+    ],
+    "sports": [
+      {
+        "id": 211,
+        "name": "Lacrosse",
+        "description": "Support our lacrosse team as they compete in the NCAA tournament."
+      },
+      {
+        "id": 212,
+        "name": "Golf",
+        "description": "Play golf at our scenic golf course and enjoy friendly competitions."
+      }
+    ],
+    "details": "Princeton University is a prestigious Ivy League institution...",
+    "graduateImages": [
+      "princeton_grad1.jpg",
+      "princeton_grad2.jpg",
+      "princeton_grad3.jpg"
+    ],
+    "researchPapers": [
+      {
+        "id": 311,
+        "title": "Economic Inequality and its Implications",
+        "authors": "Alice Johnson, Robert Lee",
+        "link": "https://example.com/research-paper11.pdf"
+      },
+      {
+        "id": 312,
+        "title": "Advancements in Biomedical Engineering",
+        "authors": "Sophia Brown, David Miller",
+        "link": "https://example.com/research-paper12.pdf"
+      }
+    ],
+    "reviews": [
+      {
+        "id": 411,
+        "user": "StudentPQR",
+        "rating": 4.6,
+        "comment": "Princeton offers an enriching academic and social experience."
+      },
+      {
+        "id": 412,
+        "user": "UserSTU",
+        "rating": 4.5,
+        "comment": "A beautiful campus with excellent resources for students."
+      }
+    ]
+  }
+]
