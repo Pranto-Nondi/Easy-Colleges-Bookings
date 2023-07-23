@@ -1,10 +1,10 @@
 
 
 
-import React, { useState, useEffect } from 'react';
+import React, {useEffect } from 'react';
 
 const EveryCollege = ({ selectedCollege }) => {
-    const [loading, setLoading] = useState(true);
+    
 
     useEffect(() => {
         
@@ -17,11 +17,7 @@ const EveryCollege = ({ selectedCollege }) => {
 
     return (
         <div className="px-5 py-5 mx-auto my-auto">
-            {loading ? (
-                <div className="text-center">
-                    <p>Loading...</p>
-                </div>
-            ) : (
+          
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-base-100 shadow-xl p-5 rounded-md">
                         <figure>
@@ -61,7 +57,7 @@ const EveryCollege = ({ selectedCollege }) => {
                         <p className="mt-4 text-md">Total Research Works: {selectedCollege?.researchCount}</p>
                     </div>
                 </div>
-            )}
+            
         </div>
     );
 };
