@@ -9,6 +9,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import MyCollege from "../Pages/MyCollege/MyCollege";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/collegeDetails/:id',
-                element: <CollegeDetails />,
+                element: <PrivateRoute><CollegeDetails /></PrivateRoute>,
 
 
             },
@@ -38,15 +39,19 @@ const router = createBrowserRouter([
             },
             {
                 path: 'admission',
-                element: <Admission />,
+                element: <PrivateRoute><Admission /></PrivateRoute>,
+            },
+            {
+                path: 'myCollege',
+                element: <PrivateRoute><MyCollege /></PrivateRoute>
             },
             {
                 path: '/login',
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register/>
+                element: <Register />
             }
 
 

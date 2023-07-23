@@ -20,9 +20,6 @@ const NavBar = () => {
     }
 
 
-
-
-
     return (
         <div className="sticky top-0 z-10 bg-gray-200 ">
             <div className="navbar mx-auto  ">
@@ -36,6 +33,7 @@ const NavBar = () => {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/colleges">Colleges</Link></li>
                             <li><Link to="/admission">Admission</Link></li>
+                            <li><Link to="/myCollege">My College</Link></li>
 
                         </ul>
                     </div>
@@ -46,6 +44,7 @@ const NavBar = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/colleges">Colleges</Link></li>
                         <li><Link to="/admission">Admission</Link></li>
+                        <li><Link to="/myCollege">My College</Link></li>
 
                     </ul>
                 </div>
