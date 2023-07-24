@@ -29,18 +29,18 @@ const EveryCollege = ({ selectedCollege }) => {
                     </figure>
 
                     <div className="mt-4">
-                        <h2 className="text-4xl font-bold">{selectedCollege?.name}</h2>
-                        <p className="text-md">Admission process:</p>
+                        <h2 className="text-2xl font-bold">{selectedCollege?.name}</h2>
+                        <p className="text-md font-semibold">Admission process:</p>
                         <ul className="text-md list-disc ml-6">
                             <li>{selectedCollege?.admissionProcess?.requirements}</li>
                             <li>{selectedCollege?.admissionProcess?.procedures}</li>
                         </ul>
-                        <p className="text-md">Our Events:</p>
+                        <p className="text-md font-semibold">Our Events:</p>
                         <ul className="text-md list-disc ml-6">
                             <li>{selectedCollege?.events[0]?.name}</li>
                             <li>{selectedCollege?.events[1]?.name}</li>
                         </ul>
-                        <p className="text-md">Our Sports:</p>
+                        <p className="text-md font-semibold">Our Sports:</p>
                         <ul className="text-md list-disc ml-6">
                             <li>{selectedCollege?.sports[0].name}</li>
                             <li>{selectedCollege?.sports[1].name}</li>
@@ -49,7 +49,7 @@ const EveryCollege = ({ selectedCollege }) => {
                 </div>
 
                 <div className="bg-base-100 shadow-xl p-5 rounded-md">
-                    <h3 className="text-2xl font-bold mb-4">Research Works</h3>
+                    <h3 className="text-2xl  mb-4 font-semibold">Some Research Works</h3>
                     <ul className="text-md list-disc ml-6">
                         {selectedCollege?.researchPapers?.map((paper) => (
                             <li key={paper.id}>
@@ -59,7 +59,7 @@ const EveryCollege = ({ selectedCollege }) => {
                             </li>
                         ))}
                     </ul>
-                    <p className="mt-4 text-md">Total Research Works: {selectedCollege?.researchCount}</p>
+                    <p className="mt-4 text-md font-semibold">Total Research Works: {selectedCollege?.researchCount}</p>
                 </div>
             </div>
 

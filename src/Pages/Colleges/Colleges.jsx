@@ -27,16 +27,16 @@ const Colleges = () => {
                             <h2 className="text-xl font-semibold">{college?.name}</h2>
                             <p className="text-sm text-gray-600">Admission Date: {college?.admissionDate}</p>
                             <p className="text-sm text-gray-600">Rating: {college?.rating}</p>
-                        
+
                             <div className="mt-4">
                                 <p className="text-sm font-semibold">Our Research Items:</p>
                                 <p className="text-sm">{college.researchCount}</p>
                             </div>
-                           
+
                             <div className="flex justify-start mt-6">
                                 <Link
                                     to={`/collegeDetails/${college._id}`}
-                                    className="bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-blue-700"
+                                    className="bg-emerald-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-emerald-600"
                                 >
                                     Details
                                 </Link>
