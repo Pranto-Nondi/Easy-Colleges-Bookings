@@ -1,4 +1,4 @@
-# Adventure Summer Camp Academy Site
+# EasyCollegeBookings
 
 This Website is a EasyCollegeBookings  website with client and server-side implementation using MongoDB as the database.
 
