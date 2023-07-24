@@ -8,7 +8,7 @@ import axios from 'axios';
 const MyCollege = () => {
     const [colleges] = useEasyColleges();
     const [selectedColleges, setSelectedColleges] = useState([]);
-
+   
     useEffect(() => {
 
         const delay = setTimeout(() => {
@@ -23,7 +23,7 @@ const MyCollege = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/admission/search`);
+            const response = await axios.get(`https://easy-college-bookings-server.vercel.app/admission/search`);
             setSelectedColleges(response.data || []);
             console.log(response.data);
         } catch (error) {
@@ -106,7 +106,7 @@ export default MyCollege;
 
 //     const fetchData = async () => {
 //         try {
-//             const response = await axios.get(`http://localhost:5000/admission/search`);
+//             const response = await axios.get(`https://easy-college-bookings-server.vercel.app/admission/search`);
 //             setSelectedColleges(response.data || []);
 //             console.log(response.data);
 //         } catch (error) {
@@ -127,7 +127,7 @@ export default MyCollege;
 
 
 //             // Your API endpoint for posting the review data
-//             const apiUrl = `http://localhost:5000/admission/review`;
+//             const apiUrl = `https://easy-college-bookings-server.vercel.app/admission/review`;
 
 //             // The review data to be posted
 //             const reviewData = {

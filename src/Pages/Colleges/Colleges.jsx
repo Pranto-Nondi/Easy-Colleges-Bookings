@@ -11,9 +11,9 @@ const Colleges = () => {
         <div className="container mx-auto my-10 px-2">
             <h2 className="text-3xl font-bold mb-6 text-center">All  Colleges</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
-                {colleges.map((college) => (
+                {colleges?.map((college) => (
                     <div
-                        key={college._id}
+                        key={college?._id}
                         className="bg-white shadow-xl rounded-lg overflow-hidden hover:shadow-2xl transition-transform duration-300 transform-gpu hover:scale-105"
                     >
                         <figure>
@@ -30,12 +30,12 @@ const Colleges = () => {
 
                             <div className="mt-4">
                                 <p className="text-sm font-semibold">Our Research Items:</p>
-                                <p className="text-sm">{college.researchCount}</p>
+                                <p className="text-sm">{college?.researchCount}</p>
                             </div>
 
                             <div className="flex justify-start mt-6">
                                 <Link
-                                    to={`/collegeDetails/${college._id}`}
+                                    to={`/collegeDetails/${college?._id}`}
                                     className="bg-emerald-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-emerald-600"
                                 >
                                     Details
