@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import swal from 'sweetalert';
 
 
 const Login = () => {
@@ -24,10 +25,13 @@ const Login = () => {
         }
         logInUser(email, password)
             .then(result => {
+
                 const loggedUser = result.user
 
                 navigate(from, { replace: true })
+
                 e.target.reset()
+                swal("Good job!", "Login SuccessFull", "success")
                 setError('')
                 setLoading(false)
 
