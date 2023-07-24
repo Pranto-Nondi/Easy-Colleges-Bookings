@@ -11,7 +11,7 @@ const Admission = () => {
     const defaultEmail = user?.email || '';
 
     const [admissionData, setAdmissionData] = useState({
-        pictureUrl: '',
+        imageUrl: '',
         candidateName: defaultCandidateName,
         email: defaultEmail,
         collegeName: '',
@@ -29,7 +29,7 @@ const Admission = () => {
         }));
     };
 
- 
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -49,7 +49,7 @@ const Admission = () => {
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    swal('Good job!', 'Form Fill Up Successfully', 'success');
+                    swal('Good job!', 'Admission Form Fill Up Successfully', 'success');
                 }
             })
             .catch((error) => {
@@ -58,7 +58,7 @@ const Admission = () => {
             });
 
         setAdmissionData({
-            pictureUrl: '',
+            imageUrl: '',
             candidateName: defaultCandidateName,
             email: defaultEmail,
             collegeName: '',
@@ -73,11 +73,11 @@ const Admission = () => {
     const handlecollegeNameChange = (e) => {
         const { value } = e.target;
 
-    e
+        e
         setAdmissionData((prevState) => ({
             ...prevState,
             collegeName: value,
-           
+
         }));
     };
 
@@ -91,21 +91,32 @@ const Admission = () => {
 
     return (
         <div className="container w-[60%] mx-auto p-4">
-            <h1 className="text-4xl text-center font-semibold">Admission Form</h1>
+            <h1 className="text-4xl text-center font-semibold">Admission Form Fill up</h1>
             <form onSubmit={handleSubmit} className="mt-4 grid grid-cols-2 gap-4">
                 <div>
-                    <label htmlFor="pictureUrl" className="block font-semibold text-lg mb-2">
-                        Picture URL:
+                    <label htmlFor="collegeName" className="block font-semibold text-lg mb-2">
+                        Select College:
                     </label>
-                    <input
-                        type="text"
-                        id="pictureUrl"
-                        value={admissionData.pictureUrl}
-                        onChange={handleChange}
+                    <select
+                        id="collegeName"
+                        value={admissionData.collegeName}
+                        onChange={handlecollegeNameChange}
                         className="border border-gray-300 p-2 w-full"
                         required
-                    />
+                    >
+                        <option value="" disabled>
+                            Select a college
+                        </option>
+                        <option value="Harvard University">Harvard University</option>
+                        <option value="Stanford University">Stanford University</option>
+                        <option value="Massachusetts Institute of Technology (MIT)">Massachusetts Institute of Technology (MIT)</option>
+                        <option value="Yale University">Yale University</option>
+                        <option value="California Institute of Technology (Caltech)">California Institute of Technology (Caltech)</option>
+                        <option value="Princeton University">Princeton University</option>
+                        {/* Add more colleges here */}
+                    </select>
                 </div>
+
                 <div>
                     <label htmlFor="name" className="block font-semibold text-lg mb-2">
                         Subject:
@@ -155,29 +166,7 @@ const Admission = () => {
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor="collegeName" className="block font-semibold text-lg mb-2">
-                        Select College:
-                    </label>
-                    <select
-                        id="collegeName"
-                        value={admissionData.collegeName}
-                        onChange={handlecollegeNameChange}
-                        className="border border-gray-300 p-2 w-full"
-                        required
-                    >
-                        <option value="" disabled>
-                            Select a college
-                        </option>
-                        <option value="Harvard University">Harvard University</option>
-                        <option value="Stanford University">Stanford University</option>
-                        <option value="Massachusetts Institute of Technology (MIT)">Massachusetts Institute of Technology (MIT)</option>
-                        <option value="Yale University">Yale University</option>
-                        <option value="California Institute of Technology (Caltech)">California Institute of Technology (Caltech)</option>
-                        <option value="Princeton University">Princeton University</option>
-                        {/* Add more colleges here */}
-                    </select>
-                </div>
+
                 {/* Additional fields for candidate information */}
                 <div>
                     <label htmlFor="candidatePhone" className="block font-semibold text-lg mb-2">
@@ -213,6 +202,19 @@ const Admission = () => {
                         type="date"
                         id="dateOfBirth"
                         value={admissionData.dateOfBirth}
+                        onChange={handleChange}
+                        className="border border-gray-300 p-2 w-full"
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="imageUrl" className="block font-semibold text-lg mb-2">
+                        Image URL:
+                    </label>
+                    <input
+                        type="text"
+                        id="imageUrl"
+                        value={admissionData.imageUrl}
                         onChange={handleChange}
                         className="border border-gray-300 p-2 w-full"
                         required
