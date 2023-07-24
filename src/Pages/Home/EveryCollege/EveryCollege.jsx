@@ -9,7 +9,7 @@ const EveryCollege = ({ selectedCollege }) => {
     useEffect(() => {
 
         const delay = setTimeout(() => {
-            setLoading(false);
+            // setLoading(false);
         }, 300);
 
         return () => clearTimeout(delay);
