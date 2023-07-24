@@ -40,7 +40,7 @@ const CollegesCards = () => {
                 <li>{college.sports[0].name}</li>
                 <li>{college.sports[1].name}</li>
               </ul>
-              <div className="flex justify-center mt-4">
+              <div className="flex justify-start mt-4">
                
                 <Link to={`/collegeDetails/${college._id}`} className="bg-emerald-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-emerald-600">Details</Link>
               </div>

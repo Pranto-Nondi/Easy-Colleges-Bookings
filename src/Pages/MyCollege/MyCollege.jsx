@@ -63,7 +63,7 @@ const MyCollege = () => {
                     </div>
 
                     <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5">
-                        <h3 className="text-2xl font-bold mb-4">College Information</h3>
+                        <h3 className="text-2xl font-bold mb-4"> College Information</h3>
                         <p className="mt-4 text-md"> {college?.details}</p>
                         <p className="mt-4 text-md">Total Research Works: {college?.researchCount}</p>
                     </div>
