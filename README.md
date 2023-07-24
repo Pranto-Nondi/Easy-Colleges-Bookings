@@ -19,7 +19,6 @@ The site is hosted on Firebase and the server is hosted on Vercel.
 
 
 
-
 ## Features Implemented
 
 - Home Page:
