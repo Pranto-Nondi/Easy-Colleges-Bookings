@@ -1,14 +1,17 @@
 
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useEasyColleges from '../../hooks/useEasyColleges';
 import axios from 'axios';
+import { AuthContext } from '../../provider/AuthProvider';
+import { RotatingLines } from 'react-loader-spinner';
 
 const MyCollege = () => {
     const [colleges] = useEasyColleges();
     const [selectedColleges, setSelectedColleges] = useState([]);
-   
+  
+    const {  loading } = useContext(AuthContext) || {}
     useEffect(() => {
 
         const delay = setTimeout(() => {
@@ -37,9 +40,16 @@ const MyCollege = () => {
         )
     );
 
-
+    if (loading) {
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
+                <RotatingLines strokeColor="grey" strokeWidth="5" animationDuration="0.75" width="96" visible={true} />
+            </div>
+        );
+    }
     return (
         <div className="px-5 py-5 mx-auto my-auto">
+            <h1 className="text-4xl text-center font-semibold pb-5">My colleges </h1>
             {filteredColleges?.map((college) => (
                 <div key={college?._id} className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
