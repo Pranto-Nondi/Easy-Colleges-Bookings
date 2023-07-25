@@ -1,6 +1,4 @@
 
-
-
 import React, { useContext, useEffect, useState } from 'react';
 import useEasyColleges from '../../hooks/useEasyColleges';
 import axios from 'axios';
@@ -10,7 +8,8 @@ import Swal from 'sweetalert2';
 
 const MyCollege = () => {
     const [colleges] = useEasyColleges();
-    const [selectedColleges, setSelectedColleges] = useState({}); // Use an object instead of an array
+    const [getColleges, setGetColleges] = useState([]); // Use an object instead of an array
+    const [selectedColleges, setSelectedColleges] = useState([]); // Use an object instead of an array
 
     const { loading } = useContext(AuthContext) || {};
 
@@ -18,25 +17,37 @@ const MyCollege = () => {
         fetchData();
     }, []);
 
+   
+
     const fetchData = async () => {
         try {
             const response = await axios.get(
                 `https://easy-college-bookings-server.vercel.app/admission/search`
             );
+            setGetColleges(response.data || []);
+            console.log(response.data);
             const selectedCollegesData = response.data.reduce((acc, college) => {
-                acc[college._id] = {
+                acc.push({ // Push each college object into the array
                     collegeId: college._id,
                     reviewInput: '',
                     rating: 0,
-                };
+                });
                 return acc;
-            }, {});
+            }, []);
             setSelectedColleges(selectedCollegesData);
-            console.log('selectedColleges:', selectedCollegesData); // Add this line for debugging
+            console.log('selectedColleges:', selectedCollegesData);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
+
+    const filteredColleges = colleges?.filter((college) =>
+        getColleges?.some((getCollege) =>
+            getCollege?.collegeName?.toLowerCase() === college?.name?.toLowerCase()
+        )
+    );
+    console.log(filteredColleges)
+
 
     const handleReviewSubmit = async (collegeId) => {
         // Validate collegeId
@@ -113,7 +124,7 @@ const MyCollege = () => {
     return (
         <div className="px-5 py-5 mx-auto my-auto">
             <h1 className="text-4xl text-center font-semibold pb-5">My colleges</h1>
-            {colleges?.map((college) => (
+            {filteredColleges?.map((college) => (
                 <div key={college?._id} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5 ">
                         <figure>

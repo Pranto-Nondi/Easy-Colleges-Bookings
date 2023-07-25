@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
         })
     }
 
-    const authInfo = { user, createUser, logInUser, loggedOut, loading, setLoading, setUpdateProfile, googleSignIn, githubSignIn, }
+    const authInfo = { user, createUser, logInUser, loggedOut, loading, setLoading, loading, setUpdateProfile, googleSignIn, githubSignIn, }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
