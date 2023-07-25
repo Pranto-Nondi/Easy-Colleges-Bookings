@@ -21,7 +21,7 @@ const MyCollege = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:5000/admission/search`
+                `https://easy-college-bookings-server.vercel.app/admission/search`
             );
             const selectedCollegesData = response.data.reduce((acc, college) => {
                 acc[college._id] = {
@@ -64,7 +64,7 @@ const MyCollege = () => {
 
         try {
             // Make an API call to store the review data in the backend
-            await axios.post(`http://localhost:5000/reviews`, {
+            await axios.post(`https://easy-college-bookings-server.vercel.app/reviews`, {
                 collegeId,
                 review: reviewInput,
                 rating,
