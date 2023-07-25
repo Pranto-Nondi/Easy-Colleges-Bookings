@@ -54,20 +54,9 @@
       
       }
     ],
-    "reviews": [
-      {
-        "id": 401,
-        "user": "User123",
-        "rating": 4.8,
-        "comment": "An exceptional university with top-notch academics."
-      },
-      {
-        "id": 402,
-        "user": "Student456",
-        "rating": 4.5,
-        "comment": "Amazing campus and a vibrant student community."
-      }
-    ]
+    "reviewInput":""
+  
+    
   },
   {
     "id": 2,
@@ -123,20 +112,7 @@
         "link": "https://www.researchgate.net/"
       }
     ],
-    "reviews": [
-      {
-        "id": 403,
-        "user": "Student789",
-        "rating": 4.6,
-        "comment": "Incredible faculty and research opportunities."
-      },
-      {
-        "id": 404,
-        "user": "UserXYZ",
-        "rating": 4.3,
-        "comment": "A well-rounded university with strong community support."
-      }
-    ]
+    "reviewInput":""
   },
   {
     "id": 3,
@@ -192,20 +168,7 @@
         "link": "https://www.researchgate.net/"
       }
     ],
-    "reviews": [
-      {
-        "id": 405,
-        "user": "UserABC",
-        "rating": 4.9,
-        "comment": "MIT sets the standard for cutting-edge research and innovation."
-      },
-      {
-        "id": 406,
-        "user": "StudentDEF",
-        "rating": 4.7,
-        "comment": "A challenging yet rewarding academic experience."
-      }
-    ]
+    "reviewInput":""
   },
   {
     "id": 4,
@@ -261,20 +224,7 @@
         "link": "https://www.researchgate.net/"
       }
     ],
-    "reviews": [
-      {
-        "id": 407,
-        "user": "UserXYZ",
-        "rating": 4.5,
-        "comment": "Yale's faculty members are knowledgeable and supportive."
-      },
-      {
-        "id": 408,
-        "user": "StudentGHI",
-        "rating": 4.4,
-        "comment": "A culturally rich and intellectually stimulating environment."
-      }
-    ]
+    "reviewInput":""
   },
   {
     "id": 5,
@@ -330,20 +280,7 @@
         "link": "https://www.researchgate.net/"
       }
     ],
-    "reviews": [
-      {
-        "id": 409,
-        "user": "StudentJKL",
-        "rating": 4.9,
-        "comment": "Caltech's rigorous academic program prepares students for success."
-      },
-      {
-        "id": 410,
-        "user": "UserMNO",
-        "rating": 4.8,
-        "comment": "A small but tight-knit community of brilliant minds."
-      }
-    ]
+    "reviewInput":""
   },
   {
     "id": 6,
@@ -399,19 +336,6 @@
         "link": "https://www.researchgate.net/"
       }
     ],
-    "reviews": [
-      {
-        "id": 411,
-        "user": "StudentPQR",
-        "rating": 4.6,
-        "comment": "Princeton offers an enriching academic and social experience."
-      },
-      {
-        "id": 412,
-        "user": "UserSTU",
-        "rating": 4.5,
-        "comment": "A beautiful campus with excellent resources for students."
-      }
-    ]
+    "reviewInput":""
   }
 ]

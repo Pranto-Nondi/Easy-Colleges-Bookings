@@ -17,7 +17,7 @@ const SearchColleges = () => {
   const handleSearch = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`https://easy-college-bookings-server.vercel.app/searchColleges?name=${searchTerm}`);
+      const response = await axios.get(`http://localhost:5000/searchColleges?name=${searchTerm}`);
       setSearchResults(response.data);
       setLoading(false);
     } catch (error) {
@@ -29,6 +29,7 @@ const SearchColleges = () => {
 
   return (
     <div className="min-h-screen bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: "url('https://i.ibb.co/KhhDVWZ/photo-1513077202514-c511b41bd4c7.jpg')" }}>
+      
       <div className="w-full max-w-5xl rounded-lg shadow-md px-4 py-6 md:flex">
         {/* Left Side - Search Functionality */}
         <div className=" md:w-1/2 md:mr-4 ">

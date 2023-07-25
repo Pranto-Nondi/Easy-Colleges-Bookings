@@ -6,39 +6,101 @@ import useEasyColleges from '../../hooks/useEasyColleges';
 import axios from 'axios';
 import { AuthContext } from '../../provider/AuthProvider';
 import { RotatingLines } from 'react-loader-spinner';
+import Swal from 'sweetalert2';
 
 const MyCollege = () => {
     const [colleges] = useEasyColleges();
-    const [selectedColleges, setSelectedColleges] = useState([]);
-  
-    const {  loading } = useContext(AuthContext) || {}
-    useEffect(() => {
+    const [selectedColleges, setSelectedColleges] = useState({}); // Use an object instead of an array
 
-        const delay = setTimeout(() => {
-            // setLoading(false);
-        }, 300);
+    const { loading } = useContext(AuthContext) || {};
 
-        return () => clearTimeout(delay);
-    }, []);
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`https://easy-college-bookings-server.vercel.app/admission/search`);
-            setSelectedColleges(response.data || []);
-            console.log(response.data);
+            const response = await axios.get(
+                `http://localhost:5000/admission/search`
+            );
+            const selectedCollegesData = response.data.reduce((acc, college) => {
+                acc[college._id] = {
+                    collegeId: college._id,
+                    reviewInput: '',
+                    rating: 0,
+                };
+                return acc;
+            }, {});
+            setSelectedColleges(selectedCollegesData);
+            console.log('selectedColleges:', selectedCollegesData); // Add this line for debugging
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
 
-    const filteredColleges = colleges?.filter((college) =>
-        selectedColleges.some((selectedCollege) =>
-            selectedCollege?.collegeName?.toLowerCase() === college?.name?.toLowerCase()
-        )
-    );
+    const handleReviewSubmit = async (collegeId) => {
+        // Validate collegeId
+        if (!collegeId || typeof collegeId !== 'string') {
+            console.error('Invalid collegeId:', collegeId);
+            return;
+        }
+
+        const collegeData = selectedColleges[collegeId];
+
+        // Validate collegeData
+        if (!collegeData || typeof collegeData !== 'object' || !('reviewInput' in collegeData)) {
+            console.error('Invalid collegeData:', collegeData);
+            return;
+        }
+
+        const { reviewInput, rating } = collegeData || {};
+        console.log(collegeData)
+
+        // Validate reviewInput and rating
+        if (!reviewInput || typeof rating !== 'number' || rating < 1 || rating > 5) {
+            console.error('Invalid reviewInput or rating:', reviewInput, rating);
+            return;
+        }
+
+        try {
+            // Make an API call to store the review data in the backend
+            await axios.post(`http://localhost:5000/reviews`, {
+                collegeId,
+                review: reviewInput,
+                rating,
+            });
+
+            // Show success alert using SweetAlert2
+            Swal.fire({
+                icon: 'success',
+                title: 'Review Added!',
+                text: 'Your review has been added successfully.',
+            });
+
+            // Clear the review input and rating after successful submission
+            setSelectedColleges((prevSelectedColleges) => ({
+                ...prevSelectedColleges,
+                [collegeId]: {
+                    ...prevSelectedColleges[collegeId],
+                    reviewInput: '',
+                    rating: 0,
+                },
+            }));
+        } catch (error) {
+            console.error('Error adding review:', error);
+
+            // Show error alert using SweetAlert2
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while adding the review.',
+            });
+        }
+    };
+
+
+
+
 
     if (loading) {
         return (
@@ -47,13 +109,13 @@ const MyCollege = () => {
             </div>
         );
     }
+
     return (
         <div className="px-5 py-5 mx-auto my-auto">
-            <h1 className="text-4xl text-center font-semibold pb-5">My colleges </h1>
-            {filteredColleges?.map((college) => (
+            <h1 className="text-4xl text-center font-semibold pb-5">My colleges</h1>
+            {colleges?.map((college) => (
                 <div key={college?._id} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5">
+                    <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5 ">
                         <figure>
                             <img
                                 className="w-full h-64 object-cover rounded-md"
@@ -61,7 +123,6 @@ const MyCollege = () => {
                                 alt="Album"
                             />
                         </figure>
-
                         <div className="mt-4">
                             <h2 className="text-3xl font-bold">{college?.name}</h2>
                             <p className="text-md font-semibold">Admission process:</p>
@@ -69,10 +130,8 @@ const MyCollege = () => {
                                 <li>{college?.admissionProcess?.requirements}</li>
                                 <li>{college?.admissionProcess?.procedures}</li>
                             </ul>
-
                         </div>
                     </div>
-
                     <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5">
                         <h3 className="text-2xl font-bold mb-4"> College Information</h3>
                         <p className="mt-4 text-md font-semibold"> {college?.details}</p>
@@ -87,150 +146,55 @@ const MyCollege = () => {
                             <li>{college?.sports[0].name}</li>
                             <li>{college?.sports[1].name}</li>
                         </ul>
+                        <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5 ">
+                            <h3 className="text-2xl font-bold mb-4">Add a Review</h3>
+                            <input
+                                type="text"
+                                className="border border-gray-300 rounded-md w-full p-2 mb-2"
+                                placeholder="Your Review"
+                                value={selectedColleges[college._id]?.reviewInput || ''}
+                                onChange={(e) => setSelectedColleges((prevSelectedColleges) => ({
+                                    ...prevSelectedColleges,
+                                    [college._id]: {
+                                        ...prevSelectedColleges[college._id],
+                                        reviewInput: e.target.value,
+                                    },
+                                }))}
+                            />
+                            <div className="mb-2">
+                                <span className="mr-2">Rating:</span>
+                                <select
+                                    value={+selectedColleges[college._id]?.rating || 0}
+                                    onChange={(e) => setSelectedColleges((prevSelectedColleges) => ({
+                                        ...prevSelectedColleges,
+                                        [college._id]: {
+                                            ...prevSelectedColleges[college._id],
+                                            rating: parseInt(e.target.value),
+                                        },
+                                    }))}
+                                >
+                                    <option value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                    <option value={4}>4</option>
+                                    <option value={5}>5</option>
+                                </select>
+                            </div>
+                            <button
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onClick={() => handleReviewSubmit(college._id)}
+                            >
+                                Submit Review
+                            </button>
+                        </div>
                     </div>
                 </div>
             ))}
         </div>
-
     );
 };
 
 export default MyCollege;
 
-
-
-// import React, { useEffect, useState } from 'react';
-// import useEasyColleges from '../../hooks/useEasyColleges';
-// import axios from 'axios';
-// import swal from 'sweetalert';
-// import Rating from 'react-rating';
-// const MyCollege = () => {
-//     const [colleges] = useEasyColleges();
-//     const [selectedColleges, setSelectedColleges] = useState([]);
-//     const [rating, setRating] = useState(0);
-//     const [reviewText, setReviewText] = useState('');
-
-//     useEffect(() => {
-//         fetchData();
-//     }, []);
-
-//     const fetchData = async () => {
-//         try {
-//             const response = await axios.get(`https://easy-college-bookings-server.vercel.app/admission/search`);
-//             setSelectedColleges(response.data || []);
-//             console.log(response.data);
-//         } catch (error) {
-//             console.error('Error fetching data:', error);
-//         }
-//     };
-//     const handleRatingChange = (value) => {
-//         setRating(value);
-//     };
-
-//     const handleReviewTextChange = (event) => {
-//         setReviewText(event.target.value);
-//     };
-
-//     const submitReview = async () => {
-//         try {
-//             // You should replace 'collegeId' with the actual ID of the college you are reviewing
-
-
-//             // Your API endpoint for posting the review data
-//             const apiUrl = `https://easy-college-bookings-server.vercel.app/admission/review`;
-
-//             // The review data to be posted
-//             const reviewData = {
-//                 rating,
-//                 reviewText,
-//             };
-
-//             // Make the API call to post the review data
-//             const response = await axios.post(apiUrl, reviewData);
-//             swal('Good job!', 'Review submitted successfully', 'success');
-//             console.log('Review submitted successfully:', response.data);
-
-//             // You can choose to refetch the data after submitting the review if necessary
-//             // fetchData();
-//         } catch (error) {
-//             console.error('Error submitting review:', error);
-//         }
-//     };
-
-//     const filteredColleges = colleges?.filter((college) =>
-//         selectedColleges.some(
-//             (selectedCollege) =>
-//                 selectedCollege?.collegeName?.toLowerCase() === college?.name?.toLowerCase()
-//         )
-//     );
-
-//     return (
-//         <div className="px-5 py-5 mx-auto my-auto">
-//             {filteredColleges?.map((college) => (
-//                 <div key={college?._id} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                     <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5">
-//                         <figure>
-//                             <img
-//                                 className="w-full h-64 object-cover rounded-md"
-//                                 src={college?.image}
-//                                 alt="Album"
-//                             />
-//                         </figure>
-
-//                         <div className="mt-4">
-//                             <h2 className="text-4xl font-bold">{college?.name}</h2>
-//                             <p className="text-md">Admission process:</p>
-//                             <ul className="text-md list-disc ml-6">
-//                                 <li>{college?.admissionProcess?.requirements}</li>
-//                                 <li>{college?.admissionProcess?.procedures}</li>
-//                             </ul>
-//                         </div>
-//                     </div>
-
-//                     <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5">
-//                         <h3 className="text-2xl font-bold mb-4">College Information</h3>
-//                         <p className="mt-4 text-md">{college?.details}</p>
-//                         <p className="mt-4 text-md">Total Research Works: {college?.researchCount}</p>
-
-//                         {/* Review Section */}
-//                         <div className="mt-8">
-//                             <h3 className="text-xl font-bold mb-2">Leave a Review</h3>
-//                             <div className="flex items-center mb-2">
-//                                 <label htmlFor="rating" className="mr-2">
-//                                     Rating:
-//                                 </label>
-//                                 <Rating
-//                                     id="rating"
-//                                     initialRating={rating}
-//                                     emptySymbol={<span>&#9734;</span>}
-//                                     fullSymbol={<span>&#9733;</span>}
-//                                     onChange={handleRatingChange} // Pass the handleRatingChange function as the onChange handler
-//                                 />
-//                             </div>
-//                             <div className="mb-2">
-//                                 <label htmlFor="reviewText">Review:</label>
-//                                 <textarea
-//                                     id="reviewText"
-//                                     value={reviewText}
-//                                     onChange={handleReviewTextChange}
-//                                     rows="4"
-//                                     className="w-full rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-//                                 />
-//                             </div>
-//                             <button
-//                                 className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-//                                 onClick={submitReview}
-//                             >
-//                                 Submit Review
-//                             </button>
-//                         </div>
-//                     </div>
-//                 </div>
-//             ))}
-//         </div>
-//     );
-// };
-
-// export default MyCollege;
 
 
