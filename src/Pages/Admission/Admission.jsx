@@ -33,7 +33,7 @@ const Admission = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:5000/admission`, {
+        fetch(`https://easy-college-bookings-server.vercel.app/admission`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

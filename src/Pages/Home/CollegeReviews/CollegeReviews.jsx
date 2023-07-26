@@ -15,7 +15,7 @@ const CollegeReviews = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/reviews`);
+            const response = await axios.get(`https://easy-college-bookings-server.vercel.app/reviews`);
             setReviews(response.data || []);
             console.log(response.data);
         } catch (error) {

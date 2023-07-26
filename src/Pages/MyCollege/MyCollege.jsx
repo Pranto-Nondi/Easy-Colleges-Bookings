@@ -11,10 +11,11 @@ const MyCollege = () => {
     const [getColleges, setGetColleges] = useState([]); // Use an object instead of an array
     const [selectedColleges, setSelectedColleges] = useState([]); // Use an object instead of an array
 
-    const { loading } = useContext(AuthContext) || {};
+    const { loading, setLoading } = useState(true);
 
     useEffect(() => {
         fetchData();
+
     }, []);
 
 
@@ -22,7 +23,7 @@ const MyCollege = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:5000/admission/search`
+                `https://easy-college-bookings-server.vercel.app/admission/search`
             );
             setGetColleges(response.data || []);
             console.log(response.data);
@@ -80,7 +81,7 @@ const MyCollege = () => {
 
         try {
             // Make an API call to store the review data in the backend
-            await axios.post(`http://localhost:5000/reviews`, {
+            await axios.post(`https://easy-college-bookings-server.vercel.app/reviews`, {
                 collegeId,
                 collegeName: colleges.find((college) => college._id === collegeId)?.name,
                 review: reviewInput,
@@ -117,17 +118,23 @@ const MyCollege = () => {
     };
 
 
+    // if (loading) {
+    //     return (
+    //         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
+    //             <RotatingLines
+    //                 strokeColor="grey"
+    //                 strokeWidth="5"
+    //                 animationDuration="0.75"
+    //                 width="96"
+    //                 visible={true}
+    //             />
+    //         </div>
+    //     );
+    // }
 
-    if (loading) {
-        return (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
-                <RotatingLines strokeColor="grey" strokeWidth="5" animationDuration="0.75" width="96" visible={true} />
-            </div>
-        );
-    }
 
     return (
-       
+
         <div className="px-5 py-5 mx-auto my-auto">
             <h1 className="text-4xl text-center font-semibold pb-5">My colleges</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
