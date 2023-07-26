@@ -3,14 +3,16 @@ import SearchColleges from '../SearchColleges/SearchColleges';
 import CollegesCards from '../CollegesCards/CollegesCards';
 import CollegeGallery from '../CollegeGallery/CollegeGallery';
 import ResearchPaper from '../ResearchPaper/ResearchPaper';
+import CollegeReviews from '../CollegeReviews/CollegeReviews';
 
 const Home = () => {
     return (
         <div>
             <SearchColleges />
             <CollegesCards />
-            <CollegeGallery/>
-            <ResearchPaper/>
+            <CollegeGallery />
+            <ResearchPaper />
+            <CollegeReviews />
         </div>
     );
 };

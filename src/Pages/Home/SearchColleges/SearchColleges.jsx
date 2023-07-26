@@ -17,7 +17,7 @@ const SearchColleges = () => {
   const handleSearch = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`https://easy-college-bookings-server.vercel.app/searchColleges?name=${searchTerm}`);
+      const response = await axios.get(`http://localhost:5000/searchColleges?name=${searchTerm}`);
       setSearchResults(response.data);
       setLoading(false);
     } catch (error) {

@@ -17,18 +17,20 @@ const MyCollege = () => {
         fetchData();
     }, []);
 
-   
+
 
     const fetchData = async () => {
         try {
             const response = await axios.get(
-                `https://easy-college-bookings-server.vercel.app/admission/search`
+                `http://localhost:5000/admission/search`
             );
             setGetColleges(response.data || []);
             console.log(response.data);
+
             const selectedCollegesData = response.data.reduce((acc, college) => {
                 acc.push({ // Push each college object into the array
                     collegeId: college._id,
+
                     reviewInput: '',
                     rating: 0,
                 });
@@ -50,13 +52,16 @@ const MyCollege = () => {
 
 
     const handleReviewSubmit = async (collegeId) => {
+
+        const collegeData = selectedColleges[collegeId];
+        console.log(collegeData)
         // Validate collegeId
         if (!collegeId || typeof collegeId !== 'string') {
             console.error('Invalid collegeId:', collegeId);
             return;
         }
 
-        const collegeData = selectedColleges[collegeId];
+
 
         // Validate collegeData
         if (!collegeData || typeof collegeData !== 'object' || !('reviewInput' in collegeData)) {
@@ -75,8 +80,9 @@ const MyCollege = () => {
 
         try {
             // Make an API call to store the review data in the backend
-            await axios.post(`https://easy-college-bookings-server.vercel.app/reviews`, {
+            await axios.post(`http://localhost:5000/reviews`, {
                 collegeId,
+                collegeName: colleges.find((college) => college._id === collegeId)?.name,
                 review: reviewInput,
                 rating,
             });
@@ -93,6 +99,7 @@ const MyCollege = () => {
                 ...prevSelectedColleges,
                 [collegeId]: {
                     ...prevSelectedColleges[collegeId],
+
                     reviewInput: '',
                     rating: 0,
                 },
@@ -111,8 +118,6 @@ const MyCollege = () => {
 
 
 
-
-
     if (loading) {
         return (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
@@ -122,11 +127,12 @@ const MyCollege = () => {
     }
 
     return (
+       
         <div className="px-5 py-5 mx-auto my-auto">
             <h1 className="text-4xl text-center font-semibold pb-5">My colleges</h1>
-            {filteredColleges?.map((college) => (
-                <div key={college?._id} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {filteredColleges?.map((college) => (
+                    <div key={college?._id} className="bg-base-100 shadow-xl p-5 rounded-md mb-5">
                         <figure>
                             <img
                                 className="w-full h-64 object-cover rounded-md"
@@ -135,54 +141,58 @@ const MyCollege = () => {
                             />
                         </figure>
                         <div className="mt-4">
-                            <h2 className="text-3xl font-bold">{college?.name}</h2>
+                            <h2 className="text-2xl font-bold">{college?.name}</h2>
                             <p className="text-md font-semibold">Admission process:</p>
                             <ul className="text-md list-disc ml-6">
                                 <li>{college?.admissionProcess?.requirements}</li>
                                 <li>{college?.admissionProcess?.procedures}</li>
                             </ul>
                         </div>
-                    </div>
-                    <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5">
-                        <h3 className="text-2xl font-bold mb-4"> College Information</h3>
-                        <p className="mt-4 text-md font-semibold"> {college?.details}</p>
-                        <p className="mt-4 text-md font-semibold">Total Research Works: {college?.researchCount}</p>
-                        <p className="text-md font-semibold">Our Events:</p>
-                        <ul className="text-md list-disc ml-6">
-                            <li>{college?.events[0]?.name}</li>
-                            <li>{college?.events[1]?.name}</li>
-                        </ul>
-                        <p className="text-md font-semibold">Our Sports:</p>
-                        <ul className="text-md list-disc ml-6">
-                            <li>{college?.sports[0].name}</li>
-                            <li>{college?.sports[1].name}</li>
-                        </ul>
-                        <div className="bg-base-100 shadow-xl p-5 rounded-md mb-5 ">
-                            <h3 className="text-2xl font-bold mb-4">Add a Review</h3>
+                        <div className="mt-4">
+                            <h3 className="text-xl font-bold mb-4">College Information</h3>
+                            <p className="mt-4 text-md font-semibold"> {college?.details}</p>
+                            <p className="mt-4 text-md font-semibold">Total Research Works: {college?.researchCount}</p>
+                            <p className="text-md font-semibold">Our Events:</p>
+                            <ul className="text-md list-disc ml-6">
+                                <li>{college?.events[0]?.name}</li>
+                                <li>{college?.events[1]?.name}</li>
+                            </ul>
+                            <p className="text-md font-semibold">Our Sports:</p>
+                            <ul className="text-md list-disc ml-6">
+                                <li>{college?.sports[0]?.name}</li>
+                                <li>{college?.sports[1]?.name}</li>
+                            </ul>
+                        </div>
+                        <div className="bg-base-100 p-5 rounded-md mb-5 ">
+                            <h3 className="text-xl font-semibold mb-4">Add a Review</h3>
                             <input
                                 type="text"
                                 className="border border-gray-300 rounded-md w-full p-2 mb-2"
                                 placeholder="Your Review"
                                 value={selectedColleges[college._id]?.reviewInput || ''}
-                                onChange={(e) => setSelectedColleges((prevSelectedColleges) => ({
-                                    ...prevSelectedColleges,
-                                    [college._id]: {
-                                        ...prevSelectedColleges[college._id],
-                                        reviewInput: e.target.value,
-                                    },
-                                }))}
+                                onChange={(e) =>
+                                    setSelectedColleges((prevSelectedColleges) => ({
+                                        ...prevSelectedColleges,
+                                        [college._id]: {
+                                            ...prevSelectedColleges[college._id],
+                                            reviewInput: e.target.value,
+                                        },
+                                    }))
+                                }
                             />
                             <div className="mb-2">
                                 <span className="mr-2">Rating:</span>
                                 <select
                                     value={+selectedColleges[college._id]?.rating || 0}
-                                    onChange={(e) => setSelectedColleges((prevSelectedColleges) => ({
-                                        ...prevSelectedColleges,
-                                        [college._id]: {
-                                            ...prevSelectedColleges[college._id],
-                                            rating: parseInt(e.target.value),
-                                        },
-                                    }))}
+                                    onChange={(e) =>
+                                        setSelectedColleges((prevSelectedColleges) => ({
+                                            ...prevSelectedColleges,
+                                            [college._id]: {
+                                                ...prevSelectedColleges[college._id],
+                                                rating: parseInt(e.target.value),
+                                            },
+                                        }))
+                                    }
                                 >
                                     <option value={1}>1</option>
                                     <option value={2}>2</option>
@@ -199,8 +209,8 @@ const MyCollege = () => {
                             </button>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };
