@@ -7,7 +7,7 @@ const ResearchPaper = () => {
 
     return (
         <section className="py-8 px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-semibold mb-4 text-center">Our Research Papers</h2>
+            <h2 className="text-3xl font-bold mb-4 text-center">Our Research Papers</h2>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 ">
                 {colleges.map((college, index) => (
                     <div key={index} className="bg-white rounded-lg shadow-md p-4">
